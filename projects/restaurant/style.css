@@ -1,0 +1,860 @@
+/* ========================================
+   NORD & ELD
+   Scandinavian Restaurant Concept
+======================================== */
+
+:root {
+    --black: #171713;
+    --dark: #22221d;
+    --cream: #f2ede3;
+    --cream-dark: #ded6c8;
+    --orange: #c86632;
+    --orange-light: #df8350;
+    --grey: #8d8b82;
+    --border: rgba(242, 237, 227, 0.18);
+}
+
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--cream);
+    color: var(--black);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ========================================
+   TYPOGRAPHY
+======================================== */
+
+h1,
+h2,
+h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    line-height: 1.05;
+}
+
+h2 {
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    letter-spacing: -2px;
+}
+
+p {
+    font-size: 1rem;
+}
+
+.eyebrow {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: var(--orange);
+
+    margin-bottom: 20px;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 100;
+}
+
+nav {
+    max-width: 1500px;
+
+    min-height: 90px;
+
+    margin: auto;
+
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--cream);
+}
+
+.logo {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 1.25rem;
+
+    letter-spacing: 3px;
+
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--orange);
+}
+
+.nav-links {
+    display: flex;
+
+    gap: 35px;
+}
+
+.nav-links a {
+    position: relative;
+
+    font-size: 0.85rem;
+
+    letter-spacing: 1px;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+    height: 1px;
+
+    left: 0;
+    bottom: -7px;
+
+    background-color: var(--orange);
+
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-button {
+    padding: 11px 19px;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    font-size: 0.8rem;
+
+    letter-spacing: 1px;
+
+    transition: 0.25s ease;
+}
+
+.nav-button:hover {
+    background-color: var(--cream);
+    color: var(--black);
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 160px 7% 100px;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--cream);
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 78% 45%,
+            rgba(198, 102, 50, 0.24),
+            transparent 25%
+        ),
+        linear-gradient(
+            115deg,
+            #151510 0%,
+            #202019 55%,
+            #171713 100%
+        );
+}
+
+
+/* Decorative fire-like glow */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -80px;
+    bottom: -200px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(207, 102, 44, 0.25),
+            rgba(152, 64, 24, 0.08) 40%,
+            transparent 70%
+        );
+
+    filter: blur(10px);
+}
+
+
+/* Fine vertical line */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    right: 16%;
+    top: 17%;
+
+    width: 1px;
+    height: 65%;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(242,237,227,0.18),
+            transparent
+        );
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.hero-content {
+    position: relative;
+
+    max-width: 1050px;
+
+    z-index: 2;
+}
+
+.hero h1 {
+    max-width: 1000px;
+
+    font-size: clamp(4rem, 8vw, 8.5rem);
+
+    letter-spacing: -6px;
+
+    margin-bottom: 35px;
+}
+
+.hero-text {
+    max-width: 580px;
+
+    color: var(--cream-dark);
+
+    font-size: 1.15rem;
+
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 40px;
+}
+
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.button {
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button.primary {
+    background-color: var(--orange);
+
+    color: #ffffff;
+}
+
+.button.primary:hover {
+    background-color: var(--orange-light);
+}
+
+.button.secondary {
+    border: 1px solid rgba(242,237,227,0.45);
+
+    color: var(--cream);
+}
+
+.button.secondary:hover {
+    background-color: var(--cream);
+
+    color: var(--black);
+}
+
+
+/* ========================================
+   ABOUT
+======================================== */
+
+.about {
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 140px 7%;
+
+    display: grid;
+
+    grid-template-columns: 1.15fr 0.85fr;
+
+    gap: 100px;
+
+    align-items: start;
+}
+
+.section-heading h2 {
+    max-width: 700px;
+}
+
+.about-text {
+    padding-top: 55px;
+}
+
+.about-text p {
+    color: #5e5b53;
+
+    font-size: 1.08rem;
+
+    margin-bottom: 25px;
+
+    max-width: 520px;
+}
+
+/* ========================================
+   FOOD SHOWCASE
+======================================== */
+
+.food-showcase {
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+}
+
+.food-showcase img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.8s ease;
+}
+
+.food-showcase:hover img {
+    transform: scale(1.025);
+}
+/* ========================================
+   MENU
+======================================== */
+
+.menu-section {
+    padding: 130px 7%;
+
+    background-color: var(--black);
+
+    color: var(--cream);
+}
+
+.menu-section > .eyebrow,
+.menu-section > h2,
+.menu-grid {
+    max-width: 1250px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-section h2 {
+    margin-bottom: 70px;
+}
+
+.menu-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    column-gap: 80px;
+}
+
+.menu-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 28px 0;
+
+    border-top: 1px solid var(--border);
+}
+
+.menu-item:nth-last-child(-n + 2) {
+    border-bottom: 1px solid var(--border);
+}
+
+.menu-item h3 {
+    font-size: 1.45rem;
+
+    margin-bottom: 7px;
+}
+
+.menu-item p {
+    color: #aaa79e;
+
+    font-size: 0.9rem;
+}
+
+.menu-item > span {
+    color: var(--orange);
+
+    white-space: nowrap;
+
+    font-size: 0.9rem;
+
+    padding-top: 4px;
+}
+
+/* ========================================
+   FIRE COOKING SHOWCASE
+======================================== */
+
+.fire-showcase {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    background-color: var(--black);
+}
+
+.fire-showcase img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.8s ease;
+}
+
+.fire-showcase:hover img {
+    transform: scale(1.025);
+}
+
+/* ========================================
+   EXPERIENCE
+======================================== */
+
+.experience {
+    position: relative;
+
+    min-height: 700px;
+
+    padding: 130px 7%;
+
+    display: flex;
+    align-items: flex-end;
+
+    overflow: hidden;
+
+    color: var(--cream);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10, 10, 8, 0.82) 0%,
+            rgba(10, 10, 8, 0.50) 50%,
+            rgba(10, 10, 8, 0.18) 100%
+        ),
+        url("images/interior.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* abstract restaurant light */
+
+.experience::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: 8%;
+    top: 10%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(218, 124, 67, 0.22),
+            rgba(157, 66, 28, 0.05) 45%,
+            transparent 70%
+        );
+
+    filter: blur(15px);
+}
+
+
+/* subtle line detail */
+
+.experience::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: 13%;
+    top: 18%;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(242,237,227,0.09);
+}
+
+.experience-content {
+    position: relative;
+
+    max-width: 850px;
+
+    z-index: 2;
+}
+
+.experience h2 {
+    margin-bottom: 30px;
+}
+
+.experience-content > p:last-child {
+    max-width: 620px;
+
+    color: var(--cream-dark);
+
+    font-size: 1.1rem;
+}
+
+
+/* ========================================
+   CONTACT
+======================================== */
+
+.contact {
+    padding: 150px 7%;
+
+    text-align: center;
+
+    background-color: var(--cream);
+}
+
+.contact .eyebrow {
+    margin-bottom: 20px;
+}
+
+.contact h2 {
+    margin-bottom: 30px;
+}
+
+.contact > p:not(.eyebrow) {
+    color: #69665d;
+
+    margin-bottom: 10px;
+}
+
+.contact .button {
+    margin-top: 30px;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+    padding: 55px 7%;
+
+    background-color: #11110e;
+
+    color: var(--cream);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-logo {
+    font-family: Georgia, "Times New Roman", serif;
+
+    letter-spacing: 3px;
+}
+
+.footer-logo span {
+    color: var(--orange);
+}
+
+footer p {
+    color: #747169;
+
+    font-size: 0.78rem;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        letter-spacing: -4px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .about-text {
+        padding-top: 20px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-item:nth-last-child(-n + 2) {
+        border-bottom: none;
+    }
+
+    .menu-item:last-child {
+        border-bottom: 1px solid var(--border);
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    nav {
+        min-height: 75px;
+
+        padding: 0 22px;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .nav-button {
+        padding: 9px 13px;
+
+        font-size: 0.7rem;
+    }
+
+    .hero {
+        background:
+    linear-gradient(
+        90deg,
+        rgba(10, 10, 8, 0.88) 0%,
+        rgba(10, 10, 8, 0.58) 45%,
+        rgba(10, 10, 8, 0.20) 100%
+    ),
+    url("images/hero.png");
+
+background-size: cover;
+background-position: center;
+    }
+
+    .hero h1 {
+        font-size: 3.7rem;
+
+        letter-spacing: -3px;
+    }
+
+    .hero-text {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .about,
+    .menu-section,
+    .experience,
+    .contact {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .about {
+        padding-top: 85px;
+        padding-bottom: 85px;
+    }
+
+    h2 {
+        font-size: 2.8rem;
+
+        letter-spacing: -1.5px;
+    }
+
+    .menu-section {
+        padding-top: 85px;
+        padding-bottom: 85px;
+    }
+
+    .menu-section h2 {
+        margin-bottom: 45px;
+    }
+
+    .menu-item {
+        gap: 15px;
+    }
+
+    .experience {
+        min-height: 580px;
+
+        padding-top: 90px;
+        padding-bottom: 70px;
+    }
+
+    .experience::before {
+        width: 350px;
+        height: 350px;
+
+        right: -120px;
+    }
+
+    .experience::after {
+        width: 260px;
+        height: 260px;
+
+        right: -70px;
+    }
+
+    .contact {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    footer {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 45px 22px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .food-showcase {
+        height: 420px;
+    }
+
+}
+
+object-fit: cover;
+
+object-position: center;
+
+.food-showcase:hover img {
+    transform: scale(1.025);
+}
+
+@media (max-width: 600px) {
+
+    .fire-showcase {
+        height: 400px;
+    }
+
+}
