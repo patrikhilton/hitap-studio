@@ -482,6 +482,12 @@ nav > a:hover {
         border-color 0.25s ease;
 }
 
+.process-step-note {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--text-soft);
+}
+
 .process-icon {
     display: block;
     height: 150px;
