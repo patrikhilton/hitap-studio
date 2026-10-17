@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lugna Rummet Massage & Friskvård</title>
+<style>
+:root {
+    --bg: #f7f4ef;
+    --bg-soft: #eee8dd;
+    --card: #ffffff;
+    --card-soft: #fbf9f5;
+
+    --text: #2b2420;
+    --text-soft: #6b625a;
+
+    --accent: #7c9070;
+    --accent-dark: #5c7254;
+    --sand: #cdb79e;
+
+    --border: rgba(43, 36, 32, 0.10);
+
+    --max-width: 1200px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    overflow-x: hidden;
+}
+img { width:100%; display:block; }
+a { text-decoration:none; color:inherit; }
+
+section { padding: 100px 8%; }
+section > h2, section > p.lead { max-width: 740px; margin-left:auto; margin-right:auto; }
+
+.section-label {
+    display:inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--accent-dark);
+    margin-bottom: 18px;
+}
+
+h1,h2,h3 { line-height: 1.1; font-family: Georgia, 'Times New Roman', serif; }
+h2 { font-size: clamp(2.1rem, 3.6vw, 3.2rem); margin-bottom: 22px; color:#1f1a16; }
+h3 { font-size: 1.3rem; color:#1f1a16; }
+p { color: var(--text-soft); }
+
+.button {
+    position: relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding: 15px 28px;
+    margin-top: 26px;
+    border-radius: 999px;
+    color: white;
+    font-weight: 700;
+    background: var(--accent-dark);
+    border: none;
+    box-shadow: 0 10px 30px rgba(92, 114, 84, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor:pointer;
+}
+.button:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(92,114,84,0.35); }
+
+header {
+    position: sticky;
+    top:0;
+    z-index: 1000;
+    background: rgba(247, 244, 239, 0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+}
+nav {
+    max-width: var(--max-width);
+    min-height: 78px;
+    margin:auto;
+    padding: 0 8%;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    gap: 30px;
+}
+.logo {
+    font-family: Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #1f1a16;
+}
+.logo span { color: var(--accent-dark); }
+.nav-menu { display:flex; align-items:center; gap: 28px; }
+.nav-menu a {
+    color: #4a4239;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+.nav-menu a:hover { color: var(--accent-dark); }
+.nav-cta {
+    background: var(--accent-dark);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 0.85rem !important;
+}
+
+/* Before/after toggle bar */
+.demo-banner {
+    position: sticky;
+    top: 78px;
+    z-index: 999;
+    background: #1f1a16;
+    color: #f7f4ef;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+.demo-banner strong { color: #e8c977; }
+
+/* HERO */
+.hero {
+    max-width: var(--max-width);
+    min-height: 82vh;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap: 60px;
+    isolation: isolate;
+}
+.hero-text { flex: 1 1 480px; }
+.hero-text p.section-label { margin-bottom: 14px; }
+.hero h1 {
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    letter-spacing: -1px;
+    color: #1f1a16;
+    margin-bottom: 26px;
+}
+.hero p.lead {
+    max-width: 480px;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+.hero-image {
+    flex: 1 1 420px;
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 28px;
+    overflow: hidden;
+    background: linear-gradient(145deg, var(--sand), var(--accent));
+}
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* SERVICES */
+.services { max-width: var(--max-width); margin:auto; background: var(--bg-soft); border-radius: 32px; }
+.service-grid {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+}
+.service-card {
+    background: var(--card);
+    padding: 36px 28px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+.service-card h3 { margin-bottom: 10px; }
+.service-card .price { color: var(--accent-dark); font-weight: 700; margin-top: 14px; }
+
+/* WHY / TRUST STRIP */
+.trust {
+    max-width: var(--max-width);
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align:center;
+    padding: 60px 8%;
+}
+.trust-item h3 { font-size: 1.6rem; color: var(--accent-dark); margin-bottom: 6px; }
+.trust-item p { font-size: 0.85rem; }
+
+/* ABOUT */
+.about { background: var(--bg-soft); }
+.about-content {
+    max-width: 900px;
+    margin: auto;
+    text-align:center;
+}
+.about-content p.lead { margin: 0 auto 20px; }
+
+/* GALLERY */
+.gallery { max-width: var(--max-width); margin:auto; }
+.gallery-grid {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 50px;
+}
+.gallery-item {
+    position: relative;
+    aspect-ratio: 1/1;
+    border-radius: 18px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--sand), var(--bg-soft));
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.gallery-item span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 14px 16px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+}
+
+/* BOOKING / CONTACT */
+.contact {
+    max-width: 1000px;
+    margin: auto;
+    background: var(--accent-dark);
+    border-radius: 32px;
+    padding: 70px 8%;
+    text-align:center;
+    color: white;
+}
+.contact h2 { color: white; }
+.contact p.lead { color: rgba(255,255,255,0.85); margin: 0 auto 10px; }
+.contact .button { background: white; color: var(--accent-dark) !important; }
+.contact .button:hover { box-shadow: 0 15px 40px rgba(0,0,0,0.25); }
+
+/* FOOTER */
+.footer {
+    padding: 50px 8% 30px;
+    text-align:center;
+    color: var(--text-soft);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+    .hero { flex-direction: column; text-align:center; }
+    .hero-text p.lead { margin: 0 auto 8px; }
+    .service-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .trust { grid-template-columns: repeat(2, 1fr); }
+    .nav-menu { display:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+    <strong>Konceptförslag</strong> — ny hemsida för Lugna Rummet Massage & Friskvård, byggd av Hitap Studio
+</div>
+
+<header>
+    <nav>
+        <a href="#" class="logo">Lugna <span>Rummet</span></a>
+        <div class="nav-menu">
+            <a href="#tjanster">Behandlingar</a>
+            <a href="#om">Om oss</a>
+            <a href="#galleri">Galleri</a>
+            <a href="#boka" class="nav-cta">Boka tid</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="hero-text">
+            <p class="section-label">MASSAGE & FRISKVÅRD · HELSINGBORG</p>
+            <h1>Återhämtning för kropp och sinne</h1>
+            <p class="lead">
+                Lugna Rummet erbjuder klassisk massage, djupvävsmassage och
+                avkopplande behandlingar i en varm och personlig miljö
+                mitt i Helsingborg.
+            </p>
+            <a href="#boka" class="button">Boka din behandling</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Avkopplande massagebehandling">
+        </div>
+    </section>
+
+    <section id="tjanster" class="services">
+        <p class="section-label">VÅRA BEHANDLINGAR</p>
+        <h2>Hitta rätt behandling för dig</h2>
+        <p class="lead">Alla behandlingar anpassas efter dina behov och önskemål.</p>
+
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Klassisk massage</h3>
+                <p>Lugnande helkroppsmassage som löser upp spänningar och sänker stressnivån.</p>
+                <p class="price">Från 595 kr / 60 min</p>
+            </div>
+            <div class="service-card">
+                <h3>Djupvävsmassage</h3>
+                <p>Riktad behandling mot djupare muskelspänningar och återkommande stelhet.</p>
+                <p class="price">Från 695 kr / 60 min</p>
+            </div>
+            <div class="service-card">
+                <h3>Hot stone-massage</h3>
+                <p>Varma stenar kombineras med massage för extra djup avslappning.</p>
+                <p class="price">Från 795 kr / 75 min</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust">
+        <div class="trust-item"><h3>10+ år</h3><p>Erfarenhet av massage & friskvård</p></div>
+        <div class="trust-item"><h3>4.9★</h3><p>Snittbetyg från besökare</p></div>
+        <div class="trust-item"><h3>1 200+</h3><p>Genomförda behandlingar</p></div>
+        <div class="trust-item"><h3>Centralt</h3><p>Lätt att nå i centrala Helsingborg</p></div>
+    </section>
+
+    <section id="om" class="about">
+        <p class="section-label">OM LUGNA RUMMET</p>
+        <div class="about-content">
+            <h2>En lugn plats att landa i</h2>
+            <p class="lead">
+                Lugna Rummet grundades med målet att ge Helsingborgs invånare en
+                plats för äkta återhämtning. Varje behandling utgår från dig —
+                dina behov, din vardag och vad just din kropp behöver just nu.
+            </p>
+            <a href="#boka" class="button">Läs mer & boka</a>
+        </div>
+    </section>
+
+    <section id="galleri" class="gallery">
+        <p class="section-label">GALLERI</p>
+        <h2>Miljön hos oss</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/11774389/pexels-photo-11774389.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Behandlingsrum">
+                <span>Behandlingsrum</span>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/3865773/pexels-photo-3865773.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Lugn atmosfär med ljus">
+                <span>Väntrum</span>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/3865608/pexels-photo-3865608.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Massageoljor">
+                <span>Produkter & oljor</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="boka" class="contact-wrap" style="max-width: var(--max-width); margin:auto;">
+        <div class="contact">
+            <h2>Redo att boka din tid?</h2>
+            <p class="lead">Ring, mejla eller boka direkt online — vi återkommer samma dag.</p>
+            <a href="#" class="button">Boka tid nu</a>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>Lugna Rummet Massage & Friskvård · Helsingborg · 123 45 67</p>
+    <p style="margin-top:10px; opacity:0.7;">
+        Detta är ett konceptförslag framtaget av Hitap Studio — inte Lugna Rummets nuvarande hemsida.
+    </p>
+</footer>
+
+</body>
+</html>
