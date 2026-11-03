@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Savings Goal Planner</title>
+           <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+   
+    <h1>Savings Goal Planner</h1>
+    <p>Find out how long it will take to reach your savings goal.</p>
+
+    <label for="goalName">What are you saving for?</label>
+    <input id="goalName" placeholder="e.g. New laptop">
+
+    <label for="goalAmount">Goal amount (€)</label>
+    <input id="goalAmount" type="number" placeholder="e.g. 1200">
+
+    <label for="currentSavings">Already saved (€)</label>
+    <input id="currentSavings" type="number" placeholder="e.g. 200">
+
+    <label for="monthlySaving">Monthly saving (€)</label>
+    <input id="monthlySaving" type="number" placeholder="e.g. 100">
+
+    <button id="planButton">Plan my savings</button>
+
+    <p id="result" aria-live="polite"></p>
+    <footer class="credit">
+  <a href="https://hitapstudio.se/en/" class="brand">
+    <img src="https://hitapstudio.se/images/logo.png" alt="Hitap Studio">
+  </a>
+  <p>Built by <a href="https://hitapstudio.se/en/">Hitap Studio</a> · Modern websites for small businesses</p>
+</footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
